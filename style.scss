@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+$black: #000814;
+$white: #ffffff;
+$secondary: #001d3d;
+$primary: #003566;
+$tertiary: #ffc300;
+$quaternary: #ffd60a;
+
+@mixin d-flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+    color: $black;
+    text-transform: uppercase;
+}
+
+body {
+    background: $primary;
+}
+
+main {
+    @include d-flex-center();
+    min-height: 100vh;
+    container-type: inline-size;
+    width: 85%;
+    margin: 0 auto;
+
+    .main-box {
+        @include d-flex-center();
+        flex-direction: column;
+        background: $white;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+
+    h1 {
+        letter-spacing: 2px;
+    }
+
+    textarea {
+        border: 1px solid $black;
+        border-radius: 4px;
+        resize: none;
+        width: 90%;
+        height: 250px;
+        padding: 0.25rem 0.75rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    label {
+        margin: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .translate-btn {
+        outline: none;
+        border: 2px solid $quaternary;
+        color: $tertiary;
+        border-radius: 0.5rem;
+        background: transparent;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background: $quaternary;
+            color: $black;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+    }
+}
