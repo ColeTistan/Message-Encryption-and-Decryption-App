@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
     <title>Telycom - Message Encryption / Decryption App</title>
 </head>
 <body>
     <main class="container">
         <div class="main-box">
             <h1>TelyCom</h1>
-            <label for="message-translator">Enter message in text or Morse Code</label>
+            <label for="message-translator" id="message-translator">Enter message in text or Morse Code</label>
             <textarea name="message-input" id="message-input"></textarea>
             <button class="translate-btn">Translate</button>    
-            <label for="translated-message">Translated Message: </label>
+            <label for="translated-message" id="translated-message-label">Translated Message: </label>
             <p class="translated-message"></p>
         </div>
     </main>
