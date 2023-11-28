@@ -26,6 +26,21 @@ body {
     background: $primary;
 }
 
+.translation-mode {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    // Additional resets for further consistency
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
 main {
     @include d-flex-center();
     min-height: 100vh;
@@ -41,6 +56,40 @@ main {
         border: none;
         border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+        #translation-mode {
+            width: 50%;
+            padding: 0.3rem;
+            margin-top: 0.5rem;
+            outline: none;
+            background: transparent;
+            border: 1px solid $black;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .translate-btn {
+            outline: none;
+            border: 2px solid $quaternary;
+            color: $tertiary;
+            border-radius: 0.5rem;
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            margin: 0.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+    
+            &:hover {
+                background: $quaternary;
+                color: $black;
+            }
+        }
+    
+        .translated-message {
+            padding: 0.25rem;
+            font-size: 1.25rem;
+        }
     }
 
     h1 {
@@ -61,29 +110,5 @@ main {
     label {
         margin: 1rem;
         // letter-spacing: 1px;
-    }
-
-    .translate-btn {
-        outline: none;
-        border: 2px solid $quaternary;
-        color: $tertiary;
-        border-radius: 0.5rem;
-        background: transparent;
-        padding: 0.75rem 1.5rem;
-        margin: 0.25rem;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-            background: $quaternary;
-            color: $black;
-        }
-    }
-
-    .translated-message {
-        padding: 0.25rem;
-        font-size: 1.25rem;
     }
 }

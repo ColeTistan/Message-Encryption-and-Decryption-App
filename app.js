@@ -45,62 +45,44 @@ morseCodeObj = {
     " ": "/"
 };
 
-// text to nato phonetic code
-natoPhoneticObj = {
-    "A": "Alfa",
-    "B": "Bravo",
-    "C": "Charlie",
-    "D": "Delta",
-    "E": "Echo",
-    "F": "Foxtrot",
-    "G": "Golf",
-    "H": "Hotel",
-    "I": "India",
-    "J": "Juliett",
-    "K": "Kilo",
-    "L": "Lima",
-    "M": "Mike",
-    "N": "November",
-    "O": "Oscar",
-    "P": "Papa",
-    "Q": "Quebec",
-    "R": "Romeo",
-    "S": "Sierra",
-    "T": "Tango",
-    "U": "Uniform",
-    "V": "Victor",
-    "W": "Whiskey",
-    "X": "X-ray",
-    "Y": "Yankee",
-    "Z": "Zulu",
-    "1": "One",
-    "2": "Two",
-    "3": "Three",
-    "4": "Four",
-    "5": "Five",
-    "6": "Six",
-    "7": "Seven",
-    "8": "Eight",
-    "9": "Nine",
-    "10": "Zero",
-    ".": "Stop",
-    "-": "Dash" // represents spaces between characters or NATO Phonetics
-};
-
 const mainDiv = document.querySelector('.main-box');
 const messageInput = document.getElementById('message-input');
 const translationBtn = document.querySelector('.translate-btn');
 const messageOutput = document.querySelector('.translated-message');
+const selectMenu = document.getElementById("translation-mode");
 
-const encodeMessage = (message) => {
+const encodeMessage = (message, messageCodeObj) => {
     let messageArr = message.toUpperCase().split("");
     return messageArr.map((key) => {
-        return morseCodeObj[key] ? morseCodeObj[key] : key
+        return messageCodeObj[key] ? messageCodeObj[key] : key
     }).join(" ");
 }
 
+const decodeMessage = (message, messageCodeObj) => {
+    const messageArr = message.split(" ");
+    let decodeMessage = "";
+    messageArr.map(word => {
+        const letters = word.split(" ");
+        letters.map(letter => {
+            let char = Object.keys(messageCodeObj).find(key => messageCodeObj[key] === letter);
+            if(char) {
+                decodeMessage += char;
+            }
+        });
+        decodeMessage += "";
+    });
+    return decodeMessage;
+}
+
 translationBtn.addEventListener('click', () => {
-    let encodedMessage = encodeMessage(messageInput.value);
-    messageOutput.innerText = encodedMessage;
-})
+    let messageInputText = messageInput.value;
+    let messageOutputText = "";
+    if(messageInputText.includes(".")) {
+        messageOutputText = decodeMessage(messageInputText, morseCodeObj);
+        messageOutput.innerText = messageOutputText;
+    } else {
+        messageOutputText = encodeMessage(messageInputText, morseCodeObj);
+        messageOutput.innerText = messageOutputText;
+    }
+});
 

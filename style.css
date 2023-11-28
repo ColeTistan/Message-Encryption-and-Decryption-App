@@ -12,6 +12,21 @@ body {
   background: #003566;
 }
 
+.translation-mode {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -32,6 +47,36 @@ main .main-box {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+main .main-box #translation-mode {
+  width: 50%;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+  outline: none;
+  background: transparent;
+  border: 1px solid #000814;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+main .main-box .translate-btn {
+  outline: none;
+  border: 2px solid #ffd60a;
+  color: #ffc300;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0.75rem 1.5rem;
+  margin: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+main .main-box .translate-btn:hover {
+  background: #ffd60a;
+  color: #000814;
+}
+main .main-box .translated-message {
+  padding: 0.25rem;
+  font-size: 1.25rem;
+}
 main h1 {
   letter-spacing: 3px;
 }
@@ -47,25 +92,4 @@ main textarea {
 }
 main label {
   margin: 1rem;
-}
-main .translate-btn {
-  outline: none;
-  border: 2px solid #ffd60a;
-  color: #ffc300;
-  border-radius: 0.5rem;
-  background: transparent;
-  padding: 0.75rem 1.5rem;
-  margin: 0.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-main .translate-btn:hover {
-  background: #ffd60a;
-  color: #000814;
-}
-main .translated-message {
-  padding: 0.25rem;
-  font-size: 1.25rem;
 }/*# sourceMappingURL=style.css.map */
