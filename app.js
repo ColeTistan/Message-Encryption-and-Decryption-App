@@ -77,6 +77,7 @@ const decodeMessage = (message, messageCodeObj) => {
 translationBtn.addEventListener('click', () => {
     let messageInputText = messageInput.value;
     let messageOutputText = "";
+    if(messageInputText.value = "") return;
     if(messageInputText.includes(".")) {
         messageOutputText = decodeMessage(messageInputText, morseCodeObj);
         messageOutput.innerText = messageOutputText;
